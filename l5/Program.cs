@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -14,8 +16,27 @@ public class Program {
       { "конечно", new string[] { "коенчно", "коненчо", "конеечно"} }
     };
 
-    
-  }
+    Console.WriteLine("Enter the path to folder:");
+    string folderPath = Console.ReadLine();
 
-  
+    string[] files = DirectoryReader.GetTextFiles(folderPath);
+
+    if (files == null) {
+      return;
+    }
+
+    foreach (string filePath in files) {
+      try {
+        string content = File.ReadAllText(filePath);
+        content = TextCorrector.ReplaceMisspelledWords(content, misspelledWords);
+        content = TextCorrector.ReplacePhoneNumbers(content);
+        File.WriteAllText(filePath, content);
+      }
+      catch {
+        Console.WriteLine("Error processing file.");
+      }
+    }
+  }
 }
+
+
