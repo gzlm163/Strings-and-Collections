@@ -11,7 +11,7 @@ public static class DirectoryReader {
       return Directory.GetFiles(folderPath, "*.txt");
     }
     catch {
-      Console.WriteLine("Error: cannot access the specified folder or files.");
+      Console.WriteLine(" Error: cannot access the specified folder or files. ");
 
       return null;
     }

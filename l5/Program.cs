@@ -33,7 +33,7 @@ public class Program {
         File.WriteAllText(filePath, content);
       }
       catch {
-        Console.WriteLine("Error processing file.");
+        Console.WriteLine(" Error processing file. ");
       }
     }
   }
