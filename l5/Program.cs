@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 public class Program {
   static void Main(string[] args) {
     Dictionary<string, string[]> misspelledWords = new Dictionary<string, string[]> {
-      { "привет", new string[] { "првиет", "пирвет", "првиет"} },
+      { "привет", new string[] { "првиет", "пирвет", "приевт"} },
       { "пожалуйста", new string[] { "пожлауйста", "пожалусйта", "пожлуйста" } },
       { "спасибо", new string[] { "спаисбо", "спассбо", "сапсибо"} },
       { "конечно", new string[] { "коенчно", "коненчо", "конеечно"} }
     };
 
-    Console.WriteLine("Enter the path to folder:");
+    Console.WriteLine(" Enter the path to folder: ");
+    Console.Write(" ");
     string folderPath = Console.ReadLine();
 
     string[] files = DirectoryReader.GetTextFiles(folderPath);
